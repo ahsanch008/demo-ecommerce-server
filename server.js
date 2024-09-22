@@ -21,6 +21,9 @@ app.use(express.json());
 
 app.use('/products', productRoutes);
 app.use('/users', userRoutes);
+app.get('/', (req, res) => {
+  res.send('URBANStore!');
+});
 port= process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
