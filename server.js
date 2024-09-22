@@ -6,8 +6,8 @@ const productRoutes = require('./routes/product');
 const userRoutes = require('./routes/user');
 
 const app = express();
-app.use(cors({
-  origin: 'http://localhost:5173',
+app.use(cors({  
+  origin: ['http://localhost:5173', 'https://urbanstore-ecommerce.vercel.app/'],
   credentials: true
 }));
 
