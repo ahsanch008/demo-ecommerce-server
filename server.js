@@ -6,9 +6,13 @@ const productRoutes = require('./routes/product');
 const userRoutes = require('./routes/user');
 
 const app = express();
-app.use(cors({  
-  origin: ['http://localhost:5173', 'https://urbanstore-ecommerce.vercel.app/'],
-  credentials: true
+
+// Update CORS configuration
+app.use(cors({
+  origin: ['http://localhost:5173', 'https://urbanstore-ecommerce.vercel.app'],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 connectDB();
@@ -17,7 +21,6 @@ app.use(express.json());
 
 app.use('/products', productRoutes);
 app.use('/users', userRoutes);
-
 port= process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
