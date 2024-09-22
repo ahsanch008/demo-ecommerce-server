@@ -7,6 +7,7 @@ const userRoutes = require('./routes/user');
 
 const app = express();
 
+connectDB();
 // Update CORS configuration
 app.use(cors({
   origin: ['http://localhost:5173', 'https://urbanstore-ecommerce.vercel.app'],
@@ -15,7 +16,6 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
-connectDB();
 app.use(morgan('dev'));
 app.use(express.json());
 
